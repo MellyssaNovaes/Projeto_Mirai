@@ -19,7 +19,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://user:password@db:5432/postgres
+      DATABASE_URL: postgresql://user:password@db:5432/postgres
 
 volumes:
   db_data:
