@@ -31,7 +31,6 @@ def read_all_users(session: SessionDep):
 
 @user_router.get("/{user_id}", response_model=UserRead)
 def read_user_by_id(user_id: int, session: SessionDep):
-    """Busca um usuário específico pelo ID."""
     
     user = session.get(User, user_id)
     
