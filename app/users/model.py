@@ -1,6 +1,15 @@
+from typing import Optional
 from sqlmodel import Field, SQLModel
 
-class User(SQLModel, table=True): 
-    id: int | None = Field(default=None, primary_key=True)
-    nome: str
+class UserBase(SQLModel):
+    name: str
     email: str
+
+class UserCreate(UserBase):
+    pass
+
+class User(UserBase, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+
+class UserRead(UserBase):
+    id: int
