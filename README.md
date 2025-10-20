@@ -1,5 +1,10 @@
 # Projeto Mirai 
 
+## Funcionalidades Implementadas
+* **CRUD Completo** (Create, Read, Update, e Delete) para usuários.
+* **Paginação** nas listas (`GET /users/`) para lidar com grandes volumes de dados de forma eficiente.
+* **Validação de Unicidade** de e-mail ao criar ou atualizar um usuário.
+
 ## Tecnologias Utilizadas
 
 - Python 3.x
