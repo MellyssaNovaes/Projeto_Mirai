@@ -14,7 +14,7 @@ def create_user(user: UserCreate, session: SessionDep):
 
     if existing_user:
         raise HTTPException(
-            status_code=400,
+            status_code=409,
             detail="O e-mail fornecido já está cadastrado."
         )
     
@@ -63,7 +63,7 @@ def update_user(user_id: int, user_update: UserUpdate, session: SessionDep):
         
         if existing_user and existing_user.id != user_id:
              raise HTTPException(
-                status_code=400,
+                status_code=409,
                 detail="O novo e-mail fornecido já está cadastrado em outro usuário."
             )
         
