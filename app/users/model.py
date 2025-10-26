@@ -13,3 +13,6 @@ class User(UserBase, table=True):
 
 class UserRead(UserBase):
     id: int
+
+class UserUpdate(UserBase):
+    pass
