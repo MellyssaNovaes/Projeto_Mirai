@@ -1,0 +1,28 @@
+@endpoint = http://localhost:8000/users
+
+### Get all users
+GET {{endpoint}}
+
+### Get user by ID
+GET {{endpoint}}/1
+
+### Create a new user
+POST {{endpoint}}
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com"
+}
+
+### Delete user
+DELETE {{endpoint}}/1
+
+### Update user
+PUT {{endpoint}}/1
+Content-Type: application/json
+
+{
+    "name": "Jane Doe",
+    "email": "jane.doe@example.com"
+}
