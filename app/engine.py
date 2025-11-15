@@ -7,7 +7,8 @@ db_url = os.getenv("DATABASE_URL", "postgresql://user:password@localhost:5432/po
 
 engine = create_engine(db_url)
 
-SQLModel.metadata.create_all(engine)
+def init_db():
+    SQLModel.metadata.create_all(engine)
 
 def get_session():
     with Session(engine) as session:
