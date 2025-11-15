@@ -1,0 +1,35 @@
+[tool.black]
+    line-length = 88
+    target-version = ['py311']
+    include = '\.pyi?$'
+    exclude = '''
+    /(
+        \.git
+        | \.venv
+        | __pycache__
+        | \.mypy_cache
+    )/
+    '''
+
+[tool.ruff]
+    line-length = 88
+    target-version = "py311"
+    select = [
+        "E",   # pycodestyle errors
+        "W",   # pycodestyle warnings
+        "F",   # pyflakes
+        "I",   # isort
+        "B",   # flake8-bugbear
+        "C4",  # flake8-comprehensions
+        "UP",  # pyupgrade
+    ]
+    ignore = []
+    exclude = [
+        ".git",
+        ".venv",
+        "__pycache__",
+        ".mypy_cache",
+    ]
+
+[tool.ruff.isort]
+    known-first-party = ["app"]
