@@ -48,7 +48,7 @@ def read_user_by_id(user_id: int, session: SessionDep):
     
     return user
 
-@user_router.put("/{user_id}", response_model=UserRead)
+@user_router.patch("/{user_id}", response_model=UserRead)
 def update_user(user_id: int, user_update: UserUpdate, session: SessionDep):
     """Atualiza um ou mais campos de um usuário existente."""
 

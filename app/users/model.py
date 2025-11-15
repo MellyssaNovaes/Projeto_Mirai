@@ -1,9 +1,10 @@
 from typing import Optional
 from sqlmodel import Field, SQLModel
+from pydantic import EmailStr
 
 class UserBase(SQLModel):
     name: str
-    email: str
+    email: EmailStr
 
 class UserCreate(UserBase):
     pass
@@ -14,5 +15,6 @@ class User(UserBase, table=True):
 class UserRead(UserBase):
     id: int
 
-class UserUpdate(UserBase):
-    pass
+class UserUpdate (UserBase):
+    name: Optional[str] = None
+    email: Optional[EmailStr] = None
