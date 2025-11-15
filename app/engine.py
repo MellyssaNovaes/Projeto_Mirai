@@ -2,10 +2,18 @@ from sqlmodel import create_engine, Session, SQLModel
 from typing import Annotated
 from fastapi import Depends
 import os
+import logging
+from sqlalchemy.exc import SQLAlchemyError
 
 db_url = os.getenv("DATABASE_URL", "postgresql://user:password@localhost:5432/postgres")
 
-engine = create_engine(db_url)
+try:
+    engine = create_engine(db_url)
+    with engine.connect() as conn:
+        pass
+except SQLAlchemyError as e:
+    logging.error(f"Erro ao conectar ao banco de dados: {e}")
+    raise
 
 def init_db():
     SQLModel.metadata.create_all(engine)
