@@ -19,7 +19,7 @@ Content-Type: application/json
 DELETE {{endpoint}}/1
 
 ### Update user
-PUT {{endpoint}}/1
+PATCH {{endpoint}}/1
 Content-Type: application/json
 
 {
