@@ -14,7 +14,7 @@
 [tool.ruff]
     line-length = 88
     target-version = "py311"
-    select = [
+    lint.select = [
         "E",   # pycodestyle errors
         "W",   # pycodestyle warnings
         "F",   # pyflakes
@@ -23,7 +23,7 @@
         "C4",  # flake8-comprehensions
         "UP",  # pyupgrade
     ]
-    ignore = []
+    lint.ignore = []
     exclude = [
         ".git",
         ".venv",
@@ -31,5 +31,5 @@
         ".mypy_cache",
     ]
 
-[tool.ruff.isort]
+[tool.ruff.lint.isort]
     known-first-party = ["app"]
