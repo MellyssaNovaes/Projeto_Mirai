@@ -15,8 +15,10 @@ except SQLAlchemyError as e:
     logging.error(f"Erro ao conectar ao banco de dados: {e}")
     raise
 
+
 def init_db():
     SQLModel.metadata.create_all(engine)
+
 
 def get_session():
     with Session(engine) as session:

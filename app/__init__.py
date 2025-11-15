@@ -3,10 +3,12 @@ from app.users.router import user_router
 from app.engine import init_db
 from contextlib import asynccontextmanager
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
-    yield 
+    yield
+
 
 app = FastAPI(lifespan=lifespan)
 
