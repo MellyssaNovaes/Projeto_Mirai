@@ -1,7 +1,8 @@
 from fastapi import APIRouter, HTTPException, status
 from sqlmodel import select
-from app.users.model import User, UserCreate, UserRead, UserUpdate
+
 from app.engine import SessionDep
+from app.users.model import User, UserCreate, UserRead, UserUpdate
 
 user_router = APIRouter(prefix="/users", tags=["Users"])
 
@@ -29,7 +30,10 @@ def create_user(user: UserCreate, session: SessionDep):
 
 @user_router.get("/", response_model=list[UserRead])
 def read_all_users(session: SessionDep, skip: int = 0, limit: int = 100):
-    """Busca e retorna uma lista de todos os usuários cadastrados. Adiciona Paginação (skip para pular, limit para o máximo de itens)."""
+    """
+    Busca e retorna uma lista de todos os usuários cadastrados.
+    Adiciona Paginação (skip para pular, limit para o máximo de itens).
+    """
 
     statement = select(User).offset(skip).limit(limit)
 

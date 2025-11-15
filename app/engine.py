@@ -1,9 +1,10 @@
-from sqlmodel import create_engine, Session, SQLModel
-from typing import Annotated
-from fastapi import Depends
-import os
 import logging
+import os
+from typing import Annotated
+
+from fastapi import Depends
 from sqlalchemy.exc import SQLAlchemyError
+from sqlmodel import Session, SQLModel, create_engine
 
 db_url = os.getenv("DATABASE_URL", "postgresql://user:password@localhost:5432/postgres")
 

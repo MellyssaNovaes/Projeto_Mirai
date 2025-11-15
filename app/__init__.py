@@ -1,7 +1,9 @@
-from fastapi import FastAPI
-from app.users.router import user_router
-from app.engine import init_db
 from contextlib import asynccontextmanager
+
+from fastapi import FastAPI
+
+from app.engine import init_db
+from app.users.router import user_router
 
 
 @asynccontextmanager
